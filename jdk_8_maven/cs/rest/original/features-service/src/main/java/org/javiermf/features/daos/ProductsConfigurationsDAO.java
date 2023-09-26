@@ -70,4 +70,9 @@ public class ProductsConfigurationsDAO {
         ProductConfiguration configuration = findByNameAndProductName(productName, configurationName);
         entityManager.remove(configuration);
     }
+
+    public List<ProductConfiguration> findAllConfigurations() {
+        JPAQuery query = new JPAQuery(entityManager);
+        return query.from(qProductConfiguration).list(qProductConfiguration);
+    }
 }

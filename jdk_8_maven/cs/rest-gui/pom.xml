@@ -13,7 +13,6 @@
 
 
     <modules>
-        <module>ocvn</module>
         <module>gestaohospital</module>
         <module>genome-nexus</module>
     </modules>

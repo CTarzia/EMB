@@ -132,6 +132,13 @@ public class EmbeddedEvoMasterController extends EmbeddedSutController {
         );
     }
 
+    public ProblemInfo getEnablementInfo() {
+        return new RestProblem(
+                "http://localhost:" + getSutPort() + "/enablement",
+                null
+        );
+    }
+
     @Override
     public SutInfoDto.OutputFormat getPreferredOutputFormat() {
         return SutInfoDto.OutputFormat.JAVA_JUNIT_4;

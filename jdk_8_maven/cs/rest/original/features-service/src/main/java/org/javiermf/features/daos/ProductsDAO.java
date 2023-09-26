@@ -7,6 +7,7 @@ import org.javiermf.features.models.Feature;
 import org.javiermf.features.models.Product;
 import org.javiermf.features.models.QFeature;
 import org.javiermf.features.models.QProduct;
+import org.javiermf.features.models.constraints.ConstraintExcludes;
 import org.javiermf.features.models.constraints.FeatureConstraint;
 import org.javiermf.features.models.constraints.QFeatureConstraint;
 import org.springframework.stereotype.Repository;
@@ -86,5 +87,10 @@ public class ProductsDAO {
         JPADeleteClause deleteClause = new JPADeleteClause(entityManager, qFeatureConstraint);
         deleteClause.where(qFeatureConstraint.id.eq(constraintId));
         deleteClause.execute();
+    }
+
+    public List<FeatureConstraint> findAllConstraints() {
+        JPAQuery query = new JPAQuery(entityManager);
+        return query.from(qFeatureConstraint).list(qFeatureConstraint);
     }
 }
