@@ -1,11 +1,10 @@
-package org.javiermf.features.services.rest.epa;
+package org.javiermf.features.epaservices.rest;
 
-import org.javiermf.features.services.rest.ProductsConfigurationFeaturesResource;
+import org.javiermf.features.epaservices.EnablementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
-import java.net.URISyntaxException;
 
 @Component
 @Produces("application/json")

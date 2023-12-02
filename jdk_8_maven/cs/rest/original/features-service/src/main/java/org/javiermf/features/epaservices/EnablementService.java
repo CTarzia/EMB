@@ -1,11 +1,8 @@
-package org.javiermf.features.services.rest.epa;
+package org.javiermf.features.epaservices;
 
 
 import org.javiermf.features.daos.ProductsConfigurationsDAO;
 import org.javiermf.features.daos.ProductsDAO;
-import org.javiermf.features.models.Feature;
-import org.javiermf.features.models.ProductConfiguration;
-import org.javiermf.features.services.ProductsService;
 import org.javiermf.features.services.rest.ProductsConfigurationResource;
 import org.javiermf.features.services.rest.ProductsConstraintsResource;
 import org.javiermf.features.services.rest.ProductsFeaturesResource;
@@ -31,7 +28,7 @@ public class EnablementService {
     @Autowired
     ProductsConstraintsResource productsConstraintsResource;
 
-    boolean withProducts() {
+    public boolean withProducts() {
         return productsDAO.findAll().size() > 0;
     }
 

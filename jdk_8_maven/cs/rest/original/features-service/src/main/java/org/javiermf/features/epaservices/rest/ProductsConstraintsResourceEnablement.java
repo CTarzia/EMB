@@ -1,14 +1,13 @@
-package org.javiermf.features.services.rest.epa;
+package org.javiermf.features.epaservices.rest;
 
-import org.javiermf.features.models.constraints.FeatureConstraint;
-import org.javiermf.features.services.ProductsService;
+import org.javiermf.features.epaservices.EnablementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.Response;
-import java.net.URI;
-import java.net.URISyntaxException;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 @Component
 @Produces("application/json")

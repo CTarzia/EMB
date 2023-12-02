@@ -3,14 +3,14 @@ package em.embedded.org.javiermf.features;
 
 import org.evomaster.client.java.controller.EmbeddedSutController;
 import org.evomaster.client.java.controller.InstrumentedSutStarter;
+import org.evomaster.client.java.controller.api.dto.AuthenticationDto;
+import org.evomaster.client.java.controller.api.dto.SutInfoDto;
 import org.evomaster.client.java.controller.api.dto.database.schema.DatabaseType;
 import org.evomaster.client.java.sql.DbCleaner;
 import org.evomaster.client.java.sql.SqlScriptRunner;
 import org.evomaster.client.java.sql.DbSpecification;
 import org.evomaster.client.java.controller.problem.ProblemInfo;
 import org.evomaster.client.java.controller.problem.RestProblem;
-import org.evomaster.client.java.controller.api.dto.AuthenticationDto;
-import org.evomaster.client.java.controller.api.dto.SutInfoDto;
 import org.javiermf.features.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -128,14 +128,9 @@ public class EmbeddedEvoMasterController extends EmbeddedSutController {
     public ProblemInfo getProblemInfo() {
         return new RestProblem(
                 "http://localhost:" + getSutPort() + "/swagger.json",
-                null
-        );
-    }
-
-    public ProblemInfo getEnablementInfo() {
-        return new RestProblem(
-                "http://localhost:" + getSutPort() + "/enablement",
-                null
+                null,
+                null,
+                "http://localhost:" + getSutPort() + "/enabled"
         );
     }
 
