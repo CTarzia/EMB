@@ -11,13 +11,13 @@ import org.evomaster.client.java.sql.SqlScriptRunner;
 import org.evomaster.client.java.sql.DbSpecification;
 import org.evomaster.client.java.controller.problem.ProblemInfo;
 import org.evomaster.client.java.controller.problem.RestProblem;
+import org.evomaster.client.java.sql.DbCleaner;
+import org.evomaster.client.java.sql.DbSpecification;
 import org.javiermf.features.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Arrays;
