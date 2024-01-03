@@ -13,12 +13,4 @@
     <packaging>jar</packaging>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>org.evomaster</groupId>
-            <artifactId>evomaster-benchmark-cs-rpc-grpc-artificial-ncs</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
-
 </project>
