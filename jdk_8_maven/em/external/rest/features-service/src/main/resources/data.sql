@@ -1,4 +1,6 @@
-insert into Product (id, name) values (1, 'ELEARNING_SITE');
+insert into Empty (id) values (1);
+-- insert into Product (id, name) values (1, 'ELEARNING_SITE');
+-- delete from Product WHERE id=1;
 -- insert into Feature (id, name,product_id) values (1, 'VIDEO_LESSONS',1);
 -- insert into Feature (id, name,product_id) values (2, 'ONLINE_FORUM',1);
 -- insert into Feature (id, name,product_id) values (3, 'CHAT',1);
