@@ -25,7 +25,7 @@ public class Resource {
     public ProductsResource productsResource() {
         return productsResource;
     }
-    @Path("enabled")
+    @Path("enabledEndpoints")
     public EnablementResource enablementResource() {
         return enablementResource;
     }

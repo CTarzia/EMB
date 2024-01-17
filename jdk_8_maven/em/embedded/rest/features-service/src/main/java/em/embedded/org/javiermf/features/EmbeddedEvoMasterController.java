@@ -17,10 +17,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Class used to start/stop the SUT. This will be controller by the EvoMaster process
@@ -126,9 +123,7 @@ public class EmbeddedEvoMasterController extends EmbeddedSutController {
     public ProblemInfo getProblemInfo() {
         return new RestProblem(
                 "http://localhost:" + getSutPort() + "/swagger.json",
-                Collections.singletonList("/enabled"),
-                null,
-                "http://localhost:" + getSutPort() + "/enabled"
+                Arrays.asList("/swagger.json", "/enabledEndpoints")
         );
     }
 
