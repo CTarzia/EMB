@@ -151,7 +151,8 @@ public class EmbeddedEvoMasterController extends EmbeddedSutController {
                         "/info", "/info.json",
                         "/mappings", "/mappings.json",
                         "/metrics", "/metrics.json", "/metrics/{name}",
-                        "/trace", "/trace.json")
+                        "/trace", "/trace.json",
+                        "/enabledEndpoints")
         );
     }
 
