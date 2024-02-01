@@ -1,8 +1,8 @@
 package org.javiermf.features.epaservices.rest;
 
 
-import org.evomaster.client.java.controller.api.dto.database.execution.epa.RestAction;
-import org.evomaster.client.java.controller.api.dto.database.execution.epa.RestActions;
+import org.evomaster.client.java.controller.api.dto.database.execution.epa.RestActionDto;
+import org.evomaster.client.java.controller.api.dto.database.execution.epa.RestActionsDto;
 import org.javiermf.features.epaservices.EnablementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,47 +19,47 @@ public class EnablementResource {
     EnablementService enablementService;
 
     @GET
-    public RestActions getEnablementInfo() {
-        RestActions enabledRestActions = new RestActions();
+    public RestActionsDto getEnablementInfo() {
+        RestActionsDto enabledRestActions = new RestActionsDto();
 
-        enabledRestActions.enabledRestActions.add(new RestAction("get", "/products"));
-        enabledRestActions.enabledRestActions.add(new RestAction("post", "/products/{productName}"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}"));
 
         if (enablementService.withProducts()) {
-            enabledRestActions.enabledRestActions.add(new RestAction("get", "/products/{productName}"));
-            enabledRestActions.enabledRestActions.add(new RestAction("delete", "/products/{productName}"));
-            enabledRestActions.enabledRestActions.add(new RestAction("get", "products/{productName}/configurations"));
-            enabledRestActions.enabledRestActions.add(new RestAction("post", "products/{productName}/configurations/{configurationName}"));
-            enabledRestActions.enabledRestActions.add(new RestAction("get", "/products/{productName}/features"));
-            enabledRestActions.enabledRestActions.add(new RestAction("post", "/products/{productName}/features/{featureName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products/{productName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "/products/{productName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "products/{productName}/configurations"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("post", "products/{productName}/configurations/{configurationName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products/{productName}/features"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}/features/{featureName}"));
         }
 
         if (enablementService.withConfiguration()) {
-            enabledRestActions.enabledRestActions.add(new RestAction("get", "products/{productName}/configurations/{configurationName}"));
-            enabledRestActions.enabledRestActions.add(new RestAction("delete", "products/{productName}/configurations/{configurationName}"));
-            enabledRestActions.enabledRestActions.add(new RestAction("delete", "products/{productName}/configurations/{configurationName}/features"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "products/{productName}/configurations/{configurationName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "products/{productName}/configurations/{configurationName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "products/{productName}/configurations/{configurationName}/features"));
         }
 
         if (enablementService.withProductWithTwoFeatures()) {
-           enabledRestActions.enabledRestActions.add(new RestAction("post", "/products/{productName}/constraints/excludes"));
-           enabledRestActions.enabledRestActions.add(new RestAction("post", "/products/{productName}/constraints/requires"));
+           enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}/constraints/excludes"));
+           enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}/constraints/requires"));
         }
 
         if (enablementService.withProductWithFeature()) {
-            enabledRestActions.enabledRestActions.add(new RestAction("put", "/products/{productName}/features/{featureName}"));
-            enabledRestActions.enabledRestActions.add(new RestAction("delete", "/products/{productName}/features/{featureName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("put", "/products/{productName}/features/{featureName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "/products/{productName}/features/{featureName}"));
         }
 
         if (enablementService.withConfigurationWithAvailableFeatures()) {
-            enabledRestActions.enabledRestActions.add(new RestAction("post", "products/{productName}/configurations/{configurationName}/features/{featureName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("post", "products/{productName}/configurations/{configurationName}/features/{featureName}"));
         }
 
         if (enablementService.withConfigurationWithActiveFeatures()) {
-            enabledRestActions.enabledRestActions.add(new RestAction("delete", "products/{productName}/configurations/{configurationName}/features/{featureName}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "products/{productName}/configurations/{configurationName}/features/{featureName}"));
         }
 
         if (enablementService.withConstraints()) {
-            enabledRestActions.enabledRestActions.add(new RestAction("delete", "/products/{productName}/constraints/{constraintId}"));
+            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "/products/{productName}/constraints/{constraintId}"));
         }
 
         return enabledRestActions;
