@@ -25,14 +25,14 @@ public class EnablementResource {
         enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products"));
         enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}"));
 
-        if (enablementService.withProducts()) {
-            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products/{productName}"));
-            enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "/products/{productName}"));
-            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "products/{productName}/configurations"));
-            enabledRestActions.enabledRestActions.add(new RestActionDto("post", "products/{productName}/configurations/{configurationName}"));
-            enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products/{productName}/features"));
-            enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}/features/{featureName}"));
-        }
+        if (!enablementService.withProducts()) return enabledRestActions;
+
+        enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products/{productName}"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("delete", "/products/{productName}"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("get", "products/{productName}/configurations"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("post", "products/{productName}/configurations/{configurationName}"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("get", "/products/{productName}/features"));
+        enabledRestActions.enabledRestActions.add(new RestActionDto("post", "/products/{productName}/features/{featureName}"));
 
         if (enablementService.withConfiguration()) {
             enabledRestActions.enabledRestActions.add(new RestActionDto("get", "products/{productName}/configurations/{configurationName}"));
