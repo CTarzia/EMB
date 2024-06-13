@@ -3,26 +3,21 @@ package em.embedded.org.javiermf.features;
 
 import org.evomaster.client.java.controller.EmbeddedSutController;
 import org.evomaster.client.java.controller.InstrumentedSutStarter;
+import org.evomaster.client.java.controller.api.dto.SutInfoDto;
+import org.evomaster.client.java.controller.api.dto.auth.AuthenticationDto;
 import org.evomaster.client.java.controller.api.dto.database.schema.DatabaseType;
-import org.evomaster.client.java.sql.DbCleaner;
-import org.evomaster.client.java.sql.SqlScriptRunner;
-import org.evomaster.client.java.sql.DbSpecification;
 import org.evomaster.client.java.controller.problem.ProblemInfo;
 import org.evomaster.client.java.controller.problem.RestProblem;
-import org.evomaster.client.java.controller.api.dto.auth.AuthenticationDto;
-import org.evomaster.client.java.controller.api.dto.SutInfoDto;
+import org.evomaster.client.java.sql.DbCleaner;
+import org.evomaster.client.java.sql.DbSpecification;
 import org.javiermf.features.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Class used to start/stop the SUT. This will be controller by the EvoMaster process
@@ -128,7 +123,7 @@ public class EmbeddedEvoMasterController extends EmbeddedSutController {
     public ProblemInfo getProblemInfo() {
         return new RestProblem(
                 "http://localhost:" + getSutPort() + "/swagger.json",
-                null
+                Arrays.asList("/swagger.json", "/enabledEndpoints")
         );
     }
 

@@ -12,15 +12,6 @@
     <artifactId>evomaster-benchmark-em-external-grpc-scs</artifactId>
     <packaging>jar</packaging>
 
-    <dependencies>
-        <!-- here, we need to add the dependency of sut in order to instance client  -->
-        <dependency>
-            <groupId>org.evomaster</groupId>
-            <artifactId>evomaster-benchmark-cs-rpc-grpc-artificial-scs</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>

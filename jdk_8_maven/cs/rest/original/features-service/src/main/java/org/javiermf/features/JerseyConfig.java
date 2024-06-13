@@ -3,15 +3,14 @@ package org.javiermf.features;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
-import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.javiermf.features.services.rest.ProductsResource;
+import org.javiermf.features.services.rest.Resource;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-        register(ProductsResource.class);
+        register(Resource.class);
         configureSwagger();
     }
 

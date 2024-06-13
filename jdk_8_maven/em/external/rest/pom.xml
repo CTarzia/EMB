@@ -21,9 +21,6 @@
         <module>catwatch</module>
         <module>news</module>
         <module>ind0</module>
-        <module>ocvn</module>
-        <module>languagetool</module>
-        <module>restcountries</module>
         <module>gestaohospital</module>
         <module>genome-nexus</module>
     </modules>
